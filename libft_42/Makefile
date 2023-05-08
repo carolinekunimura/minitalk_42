@@ -6,7 +6,7 @@
 #    By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/06 18:59:32 by coder             #+#    #+#              #
-#    Updated: 2023/04/10 14:56:07 by ckunimur         ###   ########.fr        #
+#    Updated: 2023/05/08 17:58:16 by ckunimur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = ft_isalpha.c ft_isdigit.c ft_memset.c ft_bzero.c ft_isalnum.c ft_isascii.c
 		ft_strnstr.c ft_strncmp.c ft_memcmp.c ft_memchr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_strrchr.c\
 		ft_substr.c ft_strjoin.c ft_putchar_fd.c ft_putstr_fd.c	ft_putendl_fd.c ft_putnbr_fd.c ft_striteri.c\
 		ft_strmapi.c ft_itoa.c ft_strtrim.c ft_split.c ft_printf.c ft_putchar.c ft_puthexa.c ft_putint.c \
-		ft_putstr.c ft_putpointer.c ft_putunsigned.c 
+		ft_putstr.c ft_putpointer.c ft_putunsigned.c ft_checkflag.c
 		
 
 OBJ	= $(SRC:%.c=%.o)
@@ -38,7 +38,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 $(OBJ):	$(SRC)
-	gcc $(FLAG) -c $(SRC)
+	gcc $(FLAG) -c $(SRC) -I .
 
 bonus: $(OBJBONUS)
 

@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:46:33 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/14 16:39:06 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:59:13 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	received(int sig)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (sig == SIGUSR1)
@@ -25,8 +25,10 @@ void	received(int sig)
 	else if (sig == SIGUSR2)
 		ft_printf("Signal SIGUSR2 received");
 	else
+	{
 		ft_printf("error > signal fail");
 		exit(22);
+	}
 }
 
 int	check_digit(char *str_pid)
@@ -36,7 +38,7 @@ int	check_digit(char *str_pid)
 	i = 0;
 	while (str_pid[i])
 	{
-		if (str_pid[i] >= '0' && str_pid <= '9')
+		if (str_pid[i] >= '0' && str_pid[i] <= '9')
 			i++;
 		else
 			return (1);
@@ -44,16 +46,36 @@ int	check_digit(char *str_pid)
 	return (0);
 }
 
+void	send_bit(char* argv, int pid)
+{
+	int	i;
+
+	while (1)
+	{
+		i = 0;
+		while (i < 8)
+		{
+			if (*argv >> i & 1)
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
+			i++;
+			usleep(5000);
+		}
+		if (!*argv)
+			break ;
+		argv++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	pid_t	*pid;
-	
-	pid = ft_atoi(argv[1]);
+	pid_t	pid;
+
 	if (argc != 3)
-		return (ft_printf("error > use: ./client.c <PID> <message>"));
-	if (check_digit == 1)
-		return (ft_printf("error > wrong PID number!"));
-	signal(SIGUSR1, received);
-	signal(SIGUSR2, received);
-	
+		return (ft_printf("error > use: ./client.c <PID> <message> \n"));
+	if (check_digit(argv[1]) == 1)
+		return (ft_printf("error > wrong PID number! \n"));
+	pid = ft_atoi(argv[1]);
+	send_bit(argv[2], pid);
 }

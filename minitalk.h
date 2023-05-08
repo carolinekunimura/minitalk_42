@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:46:36 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/04/12 11:20:17 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:20:50 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "libft_42/libft.h"
-
 
 #endif

@@ -6,35 +6,53 @@
 #    By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/10 14:56:27 by ckunimur          #+#    #+#              #
-#    Updated: 2023/04/10 15:02:23 by ckunimur         ###   ########.fr        #
+#    Updated: 2023/05/08 18:02:57 by ckunimur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CLIENT = 
+NAME = minitalk
 
-SRC_CLIENT =
+CLIENT = client
 
-OBJ_CLIENTE =
+SRC_CLIENT = client.c
 
-SERVER =
+OBJ_CLIENT = $(SRC_CLIENT:%.c=%.o)
 
-SRC_SERVER =
+SERVER = server
 
-OBJ_SERVER =
+SRC_SERVER = server.c
 
-NAME = minitalk.a
+OBJ_SERVER = $(SRC_SERVER:%.c=%.o)
 
-$(NAME) = $(CLIENT) $(SERVER)
+BONUS = minitalk_bonus
 
-all = $(NAME) 
+BONUS_SERVER = bonus_server
+BONUS_CLIENT = bonus_client
 
-bonus: $(OBJBONUS)
+LIB_PATH = ./libft_42/libft.a
+
+FLAGS = -Wall -Wextra -Werror
+
+all: $(NAME)
+
+$(NAME): $(SERVER) $(CLIENT)
+
+$(SERVER):
+	make -C libft_42
+	-cc -g $(SRC_SERVER) $(LIB_PATH) $(FLAGS) -o $(SERVER)
+
+$(CLIENT):
+	make -C libft_42
+	-cc -g $(SRC_CLIENT) $(LIB_PATH) $(FLAGS) -o $(CLIENT)
+	
+
 
 clean:
-	rm -rf $(OBJ) $(OBJBONUS)
-
+	rm -rf $(OBJ) $(OBJBONUS) 
+	make clean -C libft_42
+	
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(SERVER) $(CLIENT) $(LIB_PATH)
 
 re: fclean all
 
