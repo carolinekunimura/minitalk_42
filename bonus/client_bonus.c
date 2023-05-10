@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   bonus_client.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:46:33 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/05/10 16:56:03 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:57:40 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	received(int sigusr, siginfo_t *info, void *context)
 {
 	if (sigusr == SIGUSR1)
 		g_i = 0;
+	else if (sigusr == SIGUSR2)
+		ft_printf("Server confirmation received\n");
 	(void)info;
 	(void)context;
 }

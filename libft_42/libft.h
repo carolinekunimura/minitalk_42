@@ -6,7 +6,7 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 16:57:27 by coder             #+#    #+#             */
-/*   Updated: 2023/04/10 14:53:18 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:06:42 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ typedef struct s_list
 
 //functions
 
-int	ft_printf(const char *param, ...);
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_checkflag(char flag, va_list list);
-int	ft_puthexa(unsigned long n, int flag);
-int	ft_putint(int n);
-int	ft_putpointer(unsigned long int ptr);
-int	ft_putunsigned(unsigned int nbr);
+int		ft_printf(const char *param, ...);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_checkflag(char flag, va_list list);
+int		ft_puthexa(unsigned long n, int flag);
+int		ft_putint(int n);
+int		ft_putpointer(unsigned long int ptr);
+int		ft_putunsigned(unsigned int nbr);
 
 /* libft */
 

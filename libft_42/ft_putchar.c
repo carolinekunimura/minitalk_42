@@ -6,12 +6,11 @@
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:08:43 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/05/08 14:16:25 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:07:19 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 int	ft_putchar(char c)
 {	

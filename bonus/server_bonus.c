@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ckunimur <ckunimur@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:46:18 by ckunimur          #+#    #+#             */
-/*   Updated: 2023/05/10 17:02:32 by ckunimur         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:01:30 by ckunimur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	signal_handler(int sigusr, siginfo_t *info, void *context)
 			write(1, &byte, 1);
 		else
 			write(1, "\n", 1);
+		if (!byte)
+			kill(info->si_pid, SIGUSR2);
 		i = 0;
 		byte = 0;
 	}
